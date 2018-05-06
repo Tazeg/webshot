@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>WebShot</title>
+    <link rel="stylesheet" type="text/css" href="../node_modules/iview/dist/styles/iview.css">
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            height: 30px;
+            width: 100%;
+            background-color: rgb(230, 227, 227);
+            text-align: center;
+        }
+        </style>    
+</head>
+<body>
+<br><br>
+
+<div id="app">
+    <Row>
+        <i-col span="22" offset="1">
+            <Steps :current="currentStep">
+                <Step title="URLs" content="Loading URL list"></Step>
+                <Step title="Settings" content="Screenshots settings"></Step>
+                <Step title="Screenshots" content="Screenshooting"></Step>
+            </Steps>
+        </i-col>
+    </Row>
+    <Row>
+        <i-col span="22" offset="1">&nbsp;</i-col>
+    </Row>
+    <Row>
+        <i-col span="22" offset="1">
+            <div v-if="currentStep===0">
+                <i-button @click="selectFile" type="primary">Load URL list...</i-button>
+            </div>
+            <div v-else-if="currentStep===1">
+                <strong>Screenshot size (px)</strong><br>
+                <i-input v-model="w" ref="formWidth" :maxlength="4" style="width: 120px"><span slot="prepend">Width</span></i-input>
+                <i-input v-model="h" ref="formHeight" :maxlength="4" style="width: 120px"><span slot="prepend">Height</span></i-input><br>
+                <strong>Output directory</strong>
+                <i-input v-model="outdir" :readonly="true">
+                    <i-button slot="append" @click="selectOutdir">...</i-button>
+                </i-input><br>
+                <i-button type="ghost" @click="currentStep=0">Back</i-button>
+                <i-button type="primary" style="margin-left: 8px" @click="process">Continue</i-button><br><br>
+                <Alert v-if="msgWarning" type="warning" v-html="msgWarning"></Alert><br>
+            </div>
+            <div v-else>
+                <p><strong>{{ done }} / {{ initlength }}</strong></p>
+                <i-progress :percent="percent" status="active"></i-progress><br>
+                <!-- <i-input v-model="result" type="textarea" :rows="20" :readonly="true"></i-input><br> -->
+                <Alert>{{ result }}</Alert>
+                <Alert v-if="msgWarning" type="warning" v-html="msgWarning"></Alert>
+                <Alert v-if="msgError" type="error" v-html="msgError"></Alert><br>
+                <i-button @click="goto(1)" type="primary">Back</i-button>
+            </div>
+        </i-col>
+    </Row>
+
+    <div class="footer">
+        <p style="padding-top: 8px;"><a href="#" @click="openURL('https://jeffprod.com')">&copy; JeffProd.com</a></p>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript" src="../node_modules/iview/dist/iview.min.js"></script>
+<script src="js/index.js"></script>
+
+</body>
+</html>
