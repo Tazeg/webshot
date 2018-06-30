@@ -10,11 +10,16 @@
     "buildwin32": "electron-packager . WebShot --prune --platform=win32 --arch=ia32 --overwrite --asar=true --icon=app/img/icon_app.ico --version-string.CompanyName=\"JeffProd.com\" --version-string.ProductName=\"WebShot\" --version-string.FileDescription=\"Screenshot web pages\" --appCopyright=\"(c) 2018 JeffProd.com\" --ignore=\\.idea --ignore=\\.vscode",
     "buildwin64": "electron-packager . WebShot --prune --platform=win32 --arch=x64 --overwrite --asar=true --icon=app/img/icon_app.ico --version-string.CompanyName=\"JeffProd.com\" --version-string.ProductName=\"WebShot\" --version-string.FileDescription=\"Screenshot web pages\" --appCopyright=\"(c) 2018 JeffProd.com\" --ignore=\\.idea --ignore=\\.vscode"
   },
-  "keywords": ["screenshot", "web", "pages", "url"],
+  "keywords": [
+    "screenshot",
+    "web",
+    "pages",
+    "url"
+  ],
   "author": "@JeffProd",
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
-    "electron": "^1.8.6",
+    "electron": "^2.0.3",
     "filenamify": "^2.0.0",
     "iview": "^2.13.1",
     "valid-url": "^1.0.9",
@@ -23,6 +28,6 @@
   "devDependencies": {
     "electron-packager": "^12.0.2",
     "electron-rebuild": "^1.7.3",
-    "eslint": "^4.19.1"
+    "eslint": "^5.0.1"
   }
 }
