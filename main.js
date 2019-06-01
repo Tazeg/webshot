@@ -44,7 +44,7 @@ if (!gotTheLock) { app.quit(); } else {
     });
 
     // Remove default menus.
-    mainWindow.setMenu(null);
+    mainWindow.setMenuBarVisibility(false);
     mainWindow.loadURL(mainUrl);
   });
 }
