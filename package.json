@@ -8,8 +8,8 @@
     "lint": "eslint . --fix",
     "buildlin32": "electron-packager . WebShot --prune --platform=linux --arch=ia32 --overwrite --asar=true --icon=app/img/icon_app.png --ignore=\\.idea --ignore=\\.vscode",
     "buildlin64": "electron-packager . WebShot --prune --platform=linux --arch=x64 --overwrite --asar=true --icon=app/img/icon_app.png --ignore=\\.idea --ignore=\\.vscode",
-    "buildwin32": "electron-packager . WebShot --prune --platform=win32 --arch=ia32 --overwrite --asar=true --icon=app/img/icon_app.ico --version-string.CompanyName=\"JeffProd.com\" --version-string.ProductName=\"WebShot\" --version-string.FileDescription=\"Screenshot web pages\" --appCopyright=\"(c) 2018 JeffProd.com\" --ignore=\\.idea --ignore=\\.vscode",
-    "buildwin64": "electron-packager . WebShot --prune --platform=win32 --arch=x64 --overwrite --asar=true --icon=app/img/icon_app.ico --version-string.CompanyName=\"JeffProd.com\" --version-string.ProductName=\"WebShot\" --version-string.FileDescription=\"Screenshot web pages\" --appCopyright=\"(c) 2018 JeffProd.com\" --ignore=\\.idea --ignore=\\.vscode"
+    "buildwin32": "electron-packager . WebShot --prune --platform=win32 --arch=ia32 --overwrite --asar=true --icon=app/img/icon_app.ico --version-string.CompanyName=\"JeffProd.com\" --version-string.ProductName=\"WebShot\" --version-string.FileDescription=\"Screenshot web pages\" --appCopyright=\"(c) 2019 JeffProd.com\" --ignore=\\.idea --ignore=\\.vscode",
+    "buildwin64": "electron-packager . WebShot --prune --platform=win32 --arch=x64 --overwrite --asar=true --icon=app/img/icon_app.ico --version-string.CompanyName=\"JeffProd.com\" --version-string.ProductName=\"WebShot\" --version-string.FileDescription=\"Screenshot web pages\" --appCopyright=\"(c) 2019 JeffProd.com\" --ignore=\\.idea --ignore=\\.vscode"
   },
   "keywords": [
     "screenshot",
