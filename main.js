@@ -61,7 +61,7 @@ ipcMain.on('ipc-screenshot', (event, arg) => {
   });
 
   winShots.loadURL(arg.url);
-  winShots.webContents.on('did-finish-load', () => {
+  winShots.webContents.on('dom-ready', () => {
     if (winShots.isDestroyed()) {
       event.sender.send('ipc-done');
       return;
