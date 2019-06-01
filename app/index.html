@@ -45,7 +45,7 @@
                 <i-input v-model="outdir" :readonly="true">
                     <i-button slot="append" @click="selectOutdir">...</i-button>
                 </i-input><br>
-                <i-button type="ghost" @click="currentStep=0">Back</i-button>
+                <i-button @click="currentStep=0">Back</i-button>
                 <i-button type="primary" style="margin-left: 8px" @click="process">Continue</i-button><br><br>
                 <Alert v-if="msgWarning" type="warning" v-html="msgWarning"></Alert><br>
             </div>

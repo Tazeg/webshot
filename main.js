@@ -14,39 +14,40 @@ const { ipcMain } = electron;
 let mainWindow = null;
 const mainUrl = `file://${__dirname}/app/index.html`;
 
-const isAlreadyRunning = app.makeSingleInstance(() => {
-  if (mainWindow) {
-    if (mainWindow.isMinimized()) {
-      mainWindow.restore();
+const gotTheLock = app.requestSingleInstanceLock();
+if (!gotTheLock) { app.quit(); } else {
+  app.on('second-instance', () => {
+    // Someone tried to run a second instance, we should focus our window.
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) { mainWindow.restore(); }
+      mainWindow.focus();
     }
-    mainWindow.show();
-  }
-});
+  });
 
-if (isAlreadyRunning) {
-  app.exit();
+  app.on('ready', () => {
+    mainWindow = new BrowserWindow({
+      center: true,
+      width: 800,
+      height: 600,
+      resizable: false,
+      icon: `${__dirname}/app/img/icon_app.png`,
+      webPreferences: {
+        nodeIntegration: true
+      }
+    });
+
+    mainWindow.webContents.openDevTools();
+
+    mainWindow.on('closed', () => {
+      mainWindow = null;
+      app.quit();
+    });
+
+    // Remove default menus.
+    mainWindow.setMenu(null);
+    mainWindow.loadURL(mainUrl);
+  });
 }
-
-app.on('ready', () => {
-  mainWindow = new BrowserWindow({
-    center: true,
-    width: 800,
-    height: 600,
-    resizable: false,
-    icon: `${__dirname}/app/img/icon_app.png`,
-  });
-
-  mainWindow.webContents.openDevTools();
-
-  mainWindow.on('closed', () => {
-    mainWindow = null;
-    app.quit();
-  });
-
-  // Remove default menus.
-  mainWindow.setMenu(null);
-  mainWindow.loadURL(mainUrl);
-});
 
 /**
  * Open a browser window to make a screenshot
