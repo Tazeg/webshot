@@ -1,6 +1,6 @@
 {
   "name": "webshot",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A desktop app to automate screenshots of web pages from a list of URLs",
   "main": "main.js",
   "scripts": {
@@ -27,8 +27,8 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
-    "electron-packager": "^13.1.1",
-    "electron-rebuild": "^1.8.5",
-    "eslint": "^5.16.0"
+    "electron-packager": "^14.1.0",
+    "electron-rebuild": "^1.8.6",
+    "eslint": "^6.6.0"
   }
 }
