@@ -20,7 +20,7 @@
   "author": "@JeffProd",
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
-    "electron": "5.0.2",
+    "electron": "9.4.0",
     "filenamify": "^4.1.0",
     "iview": "^3.4.2",
     "valid-url": "^1.0.9",
